@@ -1,4 +1,4 @@
-Team Name: Stack OverBro
+  Team Name: Stack OverBro
 Team Members: John Seo, Carl Conroy, Tim Beck
 
 
