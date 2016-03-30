@@ -27,7 +27,7 @@ end
 20.times do 
   Question.create(
     content: Faker::Lorem.paragraph(rand(1..4)),
-    headline: Faker::Hacker.say_something_smart
+    headline: Faker::Hacker.say_something_smart,
     user_id: rand(1..4)
     )
 end
