@@ -2,7 +2,9 @@
   <h1> Register Here </h1>
 </header>
 
-<form action="/users/" method="POST">
+<% erb :_errors %>
+
+<form action="/users" method="POST">
   <div>
     <input type="text" name="user[email]" placeholder="Email">
   </div>
