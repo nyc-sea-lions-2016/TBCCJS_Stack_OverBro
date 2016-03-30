@@ -5,6 +5,6 @@ class Comment < ActiveRecord::Base
 	has_many :comments, as: :commentable
 
 
-	validates :user_id, :content, :source_id, :best_answer?, presence: true
+	validates :user_id, :content, :source_id, presence: true
 	validates :commentable_type, presence: true
 end
