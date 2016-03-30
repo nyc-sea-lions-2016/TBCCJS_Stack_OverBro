@@ -1,0 +1,12 @@
+<h1>Welcome to Stack OverBro</h1>
+
+<%@questions.each do |question| %>
+
+  <div>
+    <a href="/questions/<%=question.id%>"><%=question.headline %></a>
+  </div><br>
+<% end %>
+
+
+
+<a href="/questions/new">Ask a question!</a>
