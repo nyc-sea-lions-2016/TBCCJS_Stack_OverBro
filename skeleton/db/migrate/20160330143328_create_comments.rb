@@ -6,6 +6,8 @@ class CreateComments < ActiveRecord::Migration
   		t.string :commentable_type
   		t.text :content, null: false
   		t.integer :source_id, null: false, index: true
+
+      t.timestamps null:false
   	end
   end
 end
