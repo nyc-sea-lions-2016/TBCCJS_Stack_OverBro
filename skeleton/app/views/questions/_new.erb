@@ -3,6 +3,8 @@
   <input type="text" name="question[headline]" placeholder="Title of your question"><br>
   Content:<br>
   <input type="text" name="question[content]" placeholder="Content of your question"><br><br>
-  <input type="hidden" name="question[user_id]" value="session[:user_id]"><br><br>
+  <input type="hidden" name="question[user_id]" value="<%=session[:user_id]%>"><br><br>
   <input type="submit" value="Submit">
 </form>
+
+

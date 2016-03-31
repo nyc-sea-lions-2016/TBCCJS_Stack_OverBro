@@ -2,6 +2,12 @@
 
 <%@questions.each do |question| %>
 
+
+<% if @errors %>
+<ul>
+  <li><%= @errors %></li>
+</ul>
+<% end %>
 <!-- If logged in, question form is rendered, hidden, on top of question container -->
 <% if logged_in? %>
 <div>
@@ -19,3 +25,5 @@
 
 
 <a href="/questions/new">Ask a question!</a>
+
+
