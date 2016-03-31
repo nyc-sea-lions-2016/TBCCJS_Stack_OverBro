@@ -2,23 +2,27 @@
   <h1> Register Here </h1>
 </header>
 
-<% erb :_errors %>
+<%= erb :_errors %>
 
 <form id="register_form" action="/users" method="POST">
-  <div>
-    <input type="email" name="user[email]" placeholder="Email">
-  </div>
   <div>
     <input type="text" name="user[username]" placeholder="Username">
   </div>
   <div>
+    <input type="password" name="user[password]" placeholder="Password" required>
+  <div>
+    <input type="text" name="user[email]" placeholder="Email">
+  </div>
+  <div>
+    <input type="text" name="user[email_confirmation]" placeholder="Confirm Email">
+  </div>
+  <div>
+    <input type="submit" value="Register">
   <input type="password" name="user[password]" placeholder="Password">
   <input type="submit" value="Register">
   </div>
-
   <div>
     <a href="/index">Return Home</a>
     Already registered? <a href="/login"> Log in</a> here.
-
   </div>
 </form>

@@ -6,5 +6,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :votes
 
-  validates :email, :username, uniqueness: true, presence: true
+  validates :username, uniqueness: true, presence: true
+  validates :email, confirmation: true
+  validates :email_confirmation, presence: true
 end

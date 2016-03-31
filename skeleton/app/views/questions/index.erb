@@ -2,11 +2,28 @@
 
 <%@questions.each do |question| %>
 
+
+<% if @errors %>
+<ul>
+  <li><%= @errors %></li>
+</ul>
+<% end %>
+<!-- If logged in, question form is rendered, hidden, on top of question container -->
+<% if logged_in? %>
+<div>
+<%= erb :'/questions/_new', layout: false %>
+</div>
+<% end %>
+
+
+<section id='questions_container'>
   <div>
     <a href="/questions/<%=question.id%>"><%=question.headline %></a>
   </div><br>
 <% end %>
-
+</section>
 
 
 <a href="/questions/new">Ask a question!</a>
+
+
