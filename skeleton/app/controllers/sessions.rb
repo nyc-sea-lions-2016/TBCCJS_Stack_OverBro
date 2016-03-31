@@ -9,7 +9,7 @@ post '/login' do
     redirect '/'
   else
     @errors = ["Wrong username or password"]
-    erb :'/sessions/new'
+    erb :'/sessions/new', layout: false
   end
 end
 

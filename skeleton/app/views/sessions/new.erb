@@ -2,12 +2,12 @@
 
 <%= erb :_errors %>
 
-<form action="/login" method="POST">
+<form id="login_form" action="/login" method="POST">
   <div>
-    <input type="text" name="user[username]" placeholder="Username">
+    <input type="text" name="username" placeholder="Username">
   </div>
   <div>
-    <input type="text" name="user[password]" placeholder="Password">
+    <input type="password" name="password" placeholder="Password">
   </div>
   <div>
     <input type="submit" value="Log In">
