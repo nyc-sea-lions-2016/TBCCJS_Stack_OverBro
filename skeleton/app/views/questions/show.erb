@@ -7,3 +7,21 @@
 <p><%=comment.content%></p>
 
 <%end%>
+
+<h3> Answers</h3>
+<%@question.answers.each do |answer| %>
+<p><%=answer.content %></p>
+<%end%>
+<br>
+<h3>Your Answer</h3>
+
+<form id="answer_form" action="/answers" method="POST">
+  <input type="text" name="answer[content]" placeholder="Your Answer"><br><br>
+  <input type="hidden" name="answer[user_id]" value="<%=session[:user_id]%>"><br><br>
+  <input type="hidden" name="answer[question_id]" value="<%=@question.id%>">
+  <input type="submit" value="Submit">
+
+</form>
+
+
+
