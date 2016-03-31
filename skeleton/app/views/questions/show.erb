@@ -1,22 +1,44 @@
 <h1>Stack OverBro</h1>
 <h2><%=@question.headline %></h2>
 <div><%=@question.content %></div>
-<h3>Comments</h3>
-<%@question.comments.each do |comment| %>
-<p><%=comment.user.username%></p>
-<p><%=comment.content%></p>
+<h5>Comments</h5>
 
+<a id="question-comment-link" href="/comments">Add a Comment!</a>
+
+<form id='question-comment-form' action='/comments' method='POST'>
+  <input type="hidden" name="comment[commentable_type]" value="Question">
+  <input type="hidden" name="comment[commentable_id]" value="<%=@question.id%>">
+  <input type="hidden" name="comment[user_id]" value="<%= session[:user_id] %>">
+  Content:<br>
+  <input type="text" name="comment[content]" placeholder="Comment here"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<%@question.comments.each do |comment| %>
+<div id='question-comments'>
+  <p><%=comment.content%></p>
+  <p><%=comment.user.username%></p>
+</div>
 <%end%>
 
 <h3> Answers</h3>
 <%@question.answers.each do |answer| %>
-<p>Answer: <%=answer.content %></p>
-<p>Username: <%=answer.user.username%></p>
-<p></p>
+
+  <p><%=answer.content %></p>
+  <p><%=answer.user.username%></p>
+  <br>
+  <% answer.comments.each do |answer_comment| %>
+    <div id='answer-comments'>
+    <p><%= answer_comment.content %></p>
+    <p><%= answer_comment.user.username%></p>
+    </div>
+  <%end%>
 <%end%>
 <br>
+
 <% if logged_in? %>
-<h3>Your Answer</h3>
+
+<h3>Submit an Answer</h3>
 
 <% if @answer_errors %>
 <%= @answer_errors %>
