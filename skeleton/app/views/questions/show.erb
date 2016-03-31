@@ -10,9 +10,12 @@
 
 <h3> Answers</h3>
 <%@question.answers.each do |answer| %>
-<p><%=answer.content %></p>
+<p>Answer: <%=answer.content %></p>
+<p>Username: <%=answer.user.username%></p>
+<p></p>
 <%end%>
 <br>
+<% if logged_in? %>
 <h3>Your Answer</h3>
 
 <% if @answer_errors %>
@@ -24,8 +27,8 @@
   <input type="hidden" name="answer[user_id]" value="<%=session[:user_id]%>"><br><br>
   <input type="hidden" name="answer[question_id]" value="<%=@question.id%>">
   <input type="submit" value="Submit">
-
 </form>
+<%end%>
 
 
 
