@@ -23,16 +23,21 @@
 
 <h3> Answers</h3>
 <%@question.answers.each do |answer| %>
-<p><%=answer.content %></p>
-<br>
-<% answer.comments.each do |answer_comment| %>
-  <div id='answer-comments'>
-  <p><%= answer_comment.content %></p>
-  <p><%= answer_comment.user.username%></p>
-  </div>
+
+  <p><%=answer.content %></p>
+  <p><%=answer.user.username%></p>
+  <br>
+  <% answer.comments.each do |answer_comment| %>
+    <div id='answer-comments'>
+    <p><%= answer_comment.content %></p>
+    <p><%= answer_comment.user.username%></p>
+    </div>
+  <%end%>
 <%end%>
-<%end%>
 <br>
+
+<% if logged_in? %>
+
 <h3>Submit an Answer</h3>
 
 <% if @answer_errors %>
@@ -44,8 +49,8 @@
   <input type="hidden" name="answer[user_id]" value="<%=session[:user_id]%>"><br><br>
   <input type="hidden" name="answer[question_id]" value="<%=@question.id%>">
   <input type="submit" value="Submit">
-
 </form>
+<%end%>
 
 
 
