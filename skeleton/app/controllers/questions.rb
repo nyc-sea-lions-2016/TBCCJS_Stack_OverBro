@@ -5,7 +5,7 @@ end
 
 #index
 get '/questions' do
-  @questions = Question.all
+  @questions = Question.order(updated_at: :desc)
   erb :'/questions/index'
 end
 
@@ -16,8 +16,22 @@ end
 
 #create
 post '/questions' do
-  question = Question.create(params[:question])
-  redirect '/questions'
+  @question = Question.new(params[:question])
+  if request.xhr?
+    if @question.save
+      erb :'/questions/_new_post', layout: false
+    else
+      @errors = @question.errors.full_messages
+      erb :'/questions/index'
+    end
+  else
+    if @question.save
+      redirect '/questions'
+    else
+      @errors = @question.errors.full_messages
+      erb :'/questions/index'
+    end
+  end
 end
 
 #show
