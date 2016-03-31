@@ -9,11 +9,7 @@
 </ul>
 <% end %>
 <!-- If logged in, question form is rendered, hidden, on top of question container -->
-<% if logged_in? %>
-<div>
-<%= erb :'/questions/_new', layout: false %>
-</div>
-<% end %>
+
 
 
 <section id='questions_container'>
