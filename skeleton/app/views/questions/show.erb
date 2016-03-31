@@ -15,6 +15,10 @@
 <br>
 <h3>Your Answer</h3>
 
+<% if @answer_errors %>
+<%= @answer_errors %>
+<% end %>
+
 <form id="answer_form" action="/answers" method="POST">
   <input type="text" name="answer[content]" placeholder="Your Answer"><br><br>
   <input type="hidden" name="answer[user_id]" value="<%=session[:user_id]%>"><br><br>
