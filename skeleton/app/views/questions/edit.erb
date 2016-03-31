@@ -1,0 +1,21 @@
+<h1>Edit your Question</h1>
+
+
+<!-- Make _errors partial to implement this properly -->
+<% if @errors %>
+
+<p><%=@errors%></p>
+
+<% end %>
+
+
+<form id="edit_question_form" action="/questions/<%=@question.id%>" method="POST">
+  <input type="hidden" name="_method" value="PUT"><br><br>
+  Headline:<br>
+  <input type="text" name="question[headline]" value="<%=@question.headline%>"><br>
+  Content:<br>
+  <input type="text" name="question[content]" value="<%=@question.content%>"><br><br>
+  <input type="hidden" name="question[user_id]" value="session[:user_id]"><br><br>
+  <input type="submit" value="Submit">
+
+</form>
