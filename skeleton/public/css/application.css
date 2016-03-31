@@ -1,3 +1,7 @@
-#new_question_partial {
+#new-question-partial {
+  display: none;
+}
+
+#question-comment-form {
   display: none;
 }
