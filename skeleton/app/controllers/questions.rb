@@ -14,6 +14,10 @@ get '/questions/new' do
   erb :'/questions/new'
 end
 
+get '/questions/_new' do
+  erb :'/questions/_new'
+end
+
 #create
 post '/questions' do
   question = Question.create(params[:question])
