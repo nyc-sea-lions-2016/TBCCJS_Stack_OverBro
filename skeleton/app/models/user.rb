@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
 
   validates :username, uniqueness: true, presence: true
   validates :email, confirmation: true
-  validates :email_confirmation, presence: true
+  # validates :email_confirmation, presence: true #this fucks with Faker so it's commented out for now
 end
