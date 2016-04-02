@@ -5,3 +5,7 @@
 #question-comment-form {
   display: none;
 }
+
+#q_comment {
+  border-bottom: 2px black solid;
+}
