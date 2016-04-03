@@ -1,14 +1,13 @@
-post '/:id/upvote' do
+post '/question/:id/vote' do
+
+Vote.create()
 
 end
 
-put '/comments/:id/upvote' do
+put '/votes/:id/' do
 
 end
 
-put '/comments/:id/downvote' do
-
-end
 
 
 
