@@ -1,24 +1,13 @@
-get '/comments/:id/upvote' do
+post '/question/:id/vote' do
+
+Vote.create()
 
 end
 
-get '/comments/:id/downvote' do
+put '/votes/:id/' do
 
 end
 
 
-get '/questions/:id/upvote' do
 
-end
 
-get '/questions/:id/downvote' do
-
-end
-
-get '/answers/:id/upvote' do
-
-end
-
-get '/answers/:id/downvote' do
-
-end
