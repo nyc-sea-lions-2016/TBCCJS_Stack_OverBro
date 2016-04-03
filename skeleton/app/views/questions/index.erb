@@ -11,12 +11,13 @@
 
 <section id='questions-container'>
   <form action="/question/<%=question.id%>/vote" method="POST">
-  <input type="submit" value="Upvote">
-  <input type="hidden" name="voteable_type" value="Question">
+    <input type="submit" value="Upvote">
+    <input type="hidden" name="voteable_type" value="Question">
   </form>
+
   <form action="/question/<%=question.id%>/vote" method="POST">
-  <input type="submit" value="Downvote">
-  <input type="hidden" name="voteable_type" value="Question">
+    <input type="submit" value="Downvote">
+    <input type="hidden" name="voteable_type" value="Question">
   </form>
 
   <a href="/questions/<%=question.id%>"><%=question.headline %></a>

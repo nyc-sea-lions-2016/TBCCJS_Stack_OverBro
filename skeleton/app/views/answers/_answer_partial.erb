@@ -1,3 +1,6 @@
+
+  <%= erb :'/answers/_answer_vote_partial', layout: false, locals: {answer: answer} %>
   <p><%=answer.content %></p>
   <p><%=answer.user.username%> | <%=answer.updated_at%></p>
+  <span> <%=answer.points %> points </span>
   <br>
