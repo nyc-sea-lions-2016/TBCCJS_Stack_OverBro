@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+// Show question form
   $('#question-link').on('click', function(e){
     e.preventDefault();
     $('#new-question-partial').show();
@@ -7,6 +8,7 @@ $(document).ready(function() {
   })
 
 
+// Create new question from form
   $('#new-question-partial').on('submit',function(e){
     e.preventDefault();
     $('#new-question-partial').hide();
@@ -19,12 +21,13 @@ $(document).ready(function() {
     }).done(function(response){
 
       $('#questions-container').prepend(response);
-      
+
       $('#new-question-partial').trigger('reset');
     })
   })
 
 
+// Show comment form for question
   $('#question-comment-link').on('click', function(e){
     e.preventDefault();
     $('#question-comment-form').show();
@@ -32,6 +35,7 @@ $(document).ready(function() {
   });
 
 
+// Create new comment for question
   $('#question-comment-form').on('submit', function(e){
     e.preventDefault();
     $('#question-comment-form').hide();
@@ -48,6 +52,21 @@ $(document).ready(function() {
   });
 
 
+// Create new answer from answer form
+  $('#answer-form').on('submit', function(e){
+    e.preventDefault();
+
+    $.ajax({
+      url:$(event.target).attr('action'),
+      type: $(event.target).attr('method'),
+      data: $(event.target).serialize()
+    }).done(function(response){
+      $('#answers-container').prepend(response)
+      $('#answer-form').trigger('reset')
+    });
+  });
+
+// Show comment form for answer
   $('#answers-container').on('click', '.answer-comment-button', function(event){
     event.preventDefault();
 
@@ -65,6 +84,8 @@ $(document).ready(function() {
     });
   });
 
+
+// Create comment for answer
   $('#answers-container').on('submit', '#answer-comment-form', function(event){
     event.preventDefault();
     var answer_div = $(event.target).parent().find('#answer-comments')
