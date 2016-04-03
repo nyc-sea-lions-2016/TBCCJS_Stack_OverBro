@@ -19,7 +19,7 @@ post '/questions' do
   @question = Question.new(params[:question])
   if request.xhr?
     if @question.save
-      erb :'/questions/_new_post', layout: false
+      erb :'/questions/_new_post', layout: false, locals: {question: @question}
     else
       @errors = @question.errors.full_messages
       erb :'/questions/index'
