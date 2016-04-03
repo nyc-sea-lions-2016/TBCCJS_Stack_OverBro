@@ -1,3 +1,12 @@
+get '/answers/:id/comments/new' do
+  if request.xhr?
+    answer = Answer.find(params[:id])
+    erb :'/comments/_answer_comment_form', layout: false, locals: {answer: answer}
+  else
+    redirect '/questions'
+  end
+end
+
 post '/comments' do
   comment = Comment.new(params[:comment])
     if request.xhr?
