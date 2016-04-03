@@ -12,6 +12,11 @@
 <section id='questions-container'>
   <div>
     <a href="/questions/<%=question.id%>"><%=question.headline %></a>
+    <br>
+    <span> submitted by <%=question.user.username %> </span>
+    <span> <%=question.points %> points </span>
+
+    <div>
   </div><br>
 <% end %>
 </section>
