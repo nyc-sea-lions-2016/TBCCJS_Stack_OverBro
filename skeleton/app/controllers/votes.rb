@@ -10,7 +10,7 @@ end
 post '/answers/:id/vote' do
   answer = Answer.find(params[:id])
   points = answer.points
-  binding.pry
+
   vote = Vote.new(user_id: session[:user_id], voteable_id: answer.id, voteable_type: "Answer")
   if params[:vote_type] == "Upvote"
     vote.value = 1
