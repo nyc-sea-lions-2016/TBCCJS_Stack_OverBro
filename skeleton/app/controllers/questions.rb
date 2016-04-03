@@ -37,7 +37,8 @@ end
 #show
 get '/questions/:id' do
   @question = Question.find(params[:id])
-  erb :'/questions/show'
+  answers = @question.answers.order(:best_answer?, updated_at: :desc)
+  erb :'/questions/show', locals: {answers: answers}
 end
 
 #edit

@@ -1,0 +1,8 @@
+<form id='answer-comment-form' action='/comments' method='POST'>
+  <input type="hidden" name="comment[commentable_type]" value="Answer">
+  <input type="hidden" name="comment[commentable_id]" value="<%=answer.id%>">
+  <input type="hidden" name="comment[user_id]" value="<%= session[:user_id] %>">
+  Content:<br>
+  <input type="text" name="comment[content]" placeholder="Comment here"><br><br>
+  <input type="submit" value="Submit">
+</form>

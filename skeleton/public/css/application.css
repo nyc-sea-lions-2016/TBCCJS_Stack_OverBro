@@ -5,3 +5,16 @@
 #question-comment-form {
   display: none;
 }
+
+.comment{
+  border-top: 1px gray solid;
+  margin-left: 25px;
+}
+
+#answers-headline{
+  border-top: 1px gray solid;
+}
+
+.answer {
+  border-top: 1px gray solid;
+}

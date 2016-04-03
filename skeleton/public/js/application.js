@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
   $('#question-link').on('click', function(e){
     e.preventDefault();
     $('#new-question-partial').show();
@@ -39,15 +38,48 @@ $(document).ready(function() {
 
     $.ajax({
       url: '/comments',
-      method: 'post',
+      type: 'post',
       data: $(event.target).serialize()
     }).done(function(response){
 
       $('#question-comments').prepend(response)
     });
-
   });
 
+
+  $('#answers-container').on('click', '.answer-comment-button', function(event){
+    event.preventDefault();
+
+    var answer_div = $(event.target).parent()
+
+    $.ajax({
+      url: $(event.target).attr('href'),
+      type: 'get',
+      dataType: 'html'
+    }).done(function(response){
+
+      $('.answer-comment-button').hide();
+
+      $(answer_div).prepend(response);
+    });
+  });
+
+  $('#answers-container').on('submit', '#answer-comment-form', function(event){
+    event.preventDefault();
+    var answer_div = $(event.target).parent().find('#answer-comments')
+
+    $.ajax({
+      url: $(event.target).attr('action'),
+      type: 'POST',
+      data: $(event.target).serialize()
+    }).done(function(response){
+
+      $('.answer-comment-button').show();
+
+      $(answer_div).prepend(response)
+      $('#answer-comment-form').remove()
+    });
+  });
 });
 
 
