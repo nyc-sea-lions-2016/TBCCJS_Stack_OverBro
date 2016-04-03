@@ -2,8 +2,15 @@ post '/question/:id/vote' do
   @question = Question.find_by(id: params[:id])
   value = @question.points
 
-  Vote.create(user_id: session[:user_id], voteable_id: params[:id], voteable_type: "Question")
+  vote = Vote.new(user_id: session[:user_id], voteable_id: params[:id], voteable_type: "Question")
 
+  if params[:vote_type] == "Upvote"
+    vote.value = 1
+  else
+    vote.value = -1
+  end
+  vote.save
+redirect '/'
 end
 
 
