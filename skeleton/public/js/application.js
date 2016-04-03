@@ -19,6 +19,7 @@ $(document).ready(function() {
     }).done(function(response){
 
       $('#questions-container').prepend(response);
+      
       $('#new-question-partial').trigger('reset');
     })
   })
