@@ -1,8 +1,8 @@
 post '/question/:id/vote' do
   @question = Question.find_by(id: params[:id])
-  points = @question.points
+  value = @question.points
 
-  Vote.create(session[:user_id], points + 1)
+  Vote.create(user_id: session[:user_id], voteable_id: params[:id], voteable_type: "Question")
 
 end
 
