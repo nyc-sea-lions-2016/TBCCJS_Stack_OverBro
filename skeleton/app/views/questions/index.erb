@@ -12,7 +12,7 @@
 <section id='questions-container'>
   <% if current_user %>
   <form action="/question/<%=question.id%>/vote" method="POST">
-    <input type="submit" name="vote_type" value="Upvote">
+    <input type="submit" name="vote_type" value="Upvote" class="up">
     <input type="hidden" name="voteable_type" value="Question">
   </form>
 
