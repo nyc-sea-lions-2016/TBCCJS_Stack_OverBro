@@ -104,6 +104,16 @@ $(document).ready(function() {
   });
   $('#questions-container').on('submit', '.upvote', function(event){
     event.preventDefault();
+    debugger;
+    var $target = $(this)
+
+    $.ajax({
+      url:'/question/:id/vote', 
+      type:'POST',
+      data: $(this).serialize()
+    }).done(function(response){
+
+    })
 
   })
 });
