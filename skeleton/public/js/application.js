@@ -102,8 +102,7 @@ $(document).ready(function() {
       $('#answer-comment-form').remove()
     });
   });
-
-  $('#questions-container').on('click', '.up', function(){
+  $('#questions-container').on('submit', '.upvote', function(event){
     event.preventDefault();
 
   })
