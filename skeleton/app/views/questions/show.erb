@@ -14,6 +14,7 @@
 <%= @q_comment_errors %>
 <% end %>
 
+<% if logged_in? %>
 <form id='question-comment-form' action='/comments' method='POST'>
   <input type="hidden" name="comment[commentable_type]" value="Question">
   <input type="hidden" name="comment[commentable_id]" value="<%=question.id%>">
@@ -22,6 +23,7 @@
   <input type="text" name="comment[content]" placeholder="Comment here"><br><br>
   <input type="submit" value="Submit">
 </form>
+<% end %>
 
 <div id='question-comments'>
 <%question.comments.each do |comment| %>
@@ -38,7 +40,9 @@
 
       <%= erb :'/answers/_answer_partial', layout: false, locals: {answer: answer} %>
 
+      <% if logged_in? %>
       <a class='answer-comment-button' href="/answers/<%=answer.id%>/comments/new">Add a Comment</a>
+      <% end %>
 
       <div id='answer-comments'>
       <% answer.comments.each do |answer_comment| %>

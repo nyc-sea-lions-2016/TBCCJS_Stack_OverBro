@@ -1,10 +1,10 @@
-  <form action="/comments/<%=comment.id%>/vote" method="POST">
+  <form class="upvote" action="/comments/<%=comment.id%>/vote" method="POST">
     <input type="hidden" name="voteable_type" value="Comment">
     <input type="hidden" name="vote_type" value="Upvote">
     <input type="submit" value="Upvote">
   </form>
 
-  <form action="/comments/<%=comment.id%>/vote" method="POST">
+  <form class="downvote" action="/comments/<%=comment.id%>/vote" method="POST">
     <input type="hidden" name="voteable_type" value="Comment">
     <input type="hidden" name="vote_type" value="Downvote">
     <input type="submit" value="Downvote">
