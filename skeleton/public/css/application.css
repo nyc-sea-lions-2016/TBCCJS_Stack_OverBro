@@ -1,3 +1,7 @@
+.welcome {
+  color:#37ACFF;
+}
+
 #new-question-partial {
   display: none;
 }
@@ -23,6 +27,17 @@
   list-style-type: none;
 }
 
+.nav-bar{
+  background-color: #232323;
+}
+
 .nav-bar a{
   text-decoration: none;
+  color: #FFF;
 }
+
+#questions-container{
+  color: 0077CC;
+  background-color: #FFF8DC;
+}
+
