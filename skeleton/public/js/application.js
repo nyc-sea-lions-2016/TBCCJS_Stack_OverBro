@@ -102,20 +102,22 @@ $(document).ready(function() {
       $('#answer-comment-form').remove()
     });
   });
+
+// AJAX question upvote button
   $('#questions-container').on('submit', '.upvote', function(event){
     event.preventDefault();
-    debugger;
-    var $target = $(this)
 
+    $target = $(event.target).parent().find('.question-stats').first() 
     $.ajax({
-      url:'/question/:id/vote', 
-      type:'POST',
-      data: $(this).serialize()
+      url: $(event.target).attr('action'), 
+      type: $(event.target).attr('method'),
+      data: $(event.target).serialize()
     }).done(function(response){
 
-    })
 
-  })
+      $target.html(response);
+    });
+  });
 });
 
 

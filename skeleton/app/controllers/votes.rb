@@ -1,7 +1,6 @@
 post '/question/:id/vote' do
-  @question = Question.find_by(id: params[:id])
-  value = @question.points
-
+  question = Question.find(params[:id])
+  value = question.points
   vote = Vote.new(user_id: session[:user_id], voteable_id: params[:id], voteable_type: "Question")
 
   if params[:vote_type] == "Upvote"
@@ -9,8 +8,21 @@ post '/question/:id/vote' do
   else
     vote.value = -1
   end
-  vote.save
-  redirect '/'
+
+  if request.xhr?
+    if vote.save
+      erb :'/questions/_question_votes_partial', layout: false, locals: {question: question}
+    else
+      redirect '/'
+    end
+  else
+    if vote.save
+      redirect '/'
+    else
+      @questions = Question.order(updated_at: :desc)
+      erb :'/questions/index'
+    end
+  end
 end
 
 
