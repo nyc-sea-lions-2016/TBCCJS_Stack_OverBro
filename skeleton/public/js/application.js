@@ -81,6 +81,12 @@ $(document).ready(function() {
       $('#answer-comment-form').remove()
     });
   });
+
+  $('#questions-container').on('submit', '.up',  function(){
+    event.preventDefault();
+
+    //  Target the ID questions container, look in the container for a submit event with the class 'up'.  when that submit happens, prevent the default
+  })
 });
 
 
