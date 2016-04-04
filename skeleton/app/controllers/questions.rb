@@ -36,9 +36,9 @@ end
 
 #show
 get '/questions/:id' do
-  @question = Question.find(params[:id])
-  answers = @question.answers.order(:best_answer?, updated_at: :desc)
-  erb :'/questions/show', locals: {answers: answers}
+  question = Question.find(params[:id])
+  answers = question.answers.order(:best_answer?, updated_at: :desc)
+  erb :'/questions/show', locals: {answers: answers, question: question}
 end
 
 #edit

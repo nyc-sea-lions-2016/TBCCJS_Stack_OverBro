@@ -1,4 +1,8 @@
 <div class="comment" id="<%= comment.id %>">
+  <% if logged_in? %>
+  <%= erb :'/comments/_comment_vote_partial', layout: false, locals: {comment: comment} %>
+  <% end %>
   <p><%=comment.content%></p>
   <p><%=comment.user.username%> | <%= comment.updated_at%></p>
+  <span> <%=comment.points %> points </span>
 </div>

@@ -5,4 +5,8 @@ class Comment < ActiveRecord::Base
 
 	validates :user_id, :content, presence: true
 	validates :commentable_type, presence: true
+
+  def points
+    votes.sum(:value)
+  end
 end
