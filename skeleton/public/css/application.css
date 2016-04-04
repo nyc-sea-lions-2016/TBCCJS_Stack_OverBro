@@ -18,3 +18,11 @@
 .answer {
   border-top: 1px gray solid;
 }
+
+.nav-bar ul{
+  list-style-type: none;
+}
+
+.nav-bar a{
+  text-decoration: none;
+}
