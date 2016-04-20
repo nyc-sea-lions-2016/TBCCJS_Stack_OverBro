@@ -104,15 +104,17 @@ $(document).ready(function() {
   });
   $('#questions-container').on('submit', '.upvote', function(event){
     event.preventDefault();
-    debugger;
+    debugger;   
     var $target = $(this)
 
     $.ajax({
-      url:'/question/:id/vote', 
+      url:$target.attr('action'), 
       type:'POST',
-      data: $(this).serialize()
+      data: $(this).serialize(), 
+      dataType: 'JSON'
     }).done(function(response){
-
+      // var parsedResponse = JSON.parse(response) << Data type JSON
+      parsedResponse.newVoteCount
     })
 
   })

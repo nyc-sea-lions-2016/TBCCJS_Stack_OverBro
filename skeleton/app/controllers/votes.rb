@@ -10,7 +10,8 @@ post '/question/:id/vote' do
     vote.value = -1
   end
   vote.save
-  redirect '/'
+  content_type :json
+  {newVoteCount: @question.points}.to_json
 end
 
 
